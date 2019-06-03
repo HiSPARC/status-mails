@@ -4,7 +4,7 @@ from collections import namedtuple, defaultdict
 import sqlalchemy as sa
 import sqlalchemy.orm as orm
 
-from .config import DB_USER, DB_PASSWORD
+from config import DB_USER, DB_PASSWORD
 
 CONNECTION_STR = f'mysql+pymysql://{DB_USER}:{DB_PASSWORD}@localhost/wp_hisparc?charset=utf8'
 
