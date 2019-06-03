@@ -10,7 +10,7 @@ for stations with a certain status. (Problem: daily, Down: weekly)
 Enviroment (python>=3.6) `/srv/hisparc/hisparc_venv` see also `requirements.txt`
 
 ```/etc/cron.d/hisparc
-tuur een mail naar alle stations die 'problem' als data-status hebben
+# Stuur een mail naar alle stations die 'problem' als data-status hebben
 # tijdstip 8:30am
 30 8 * * * hisparc cd /srv/hisparc/status-mails/ && /srv/hisparc/hisparc_venv/bin/python problem_status_mail.py
 # weekly offline message: Monday 8:28am
