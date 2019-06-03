@@ -1,6 +1,3 @@
-# do not commit secrets in config
-config.py
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

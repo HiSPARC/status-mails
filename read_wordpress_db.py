@@ -18,6 +18,7 @@ def str_to_list_of_ints(s):
     except Exception as e:
         return []
 
+
 # Wordpress tables definitions.
 # https://github.com/ramen/wordpress-sqlalchemy
 # Copyright (c) 2010 by Dave Benjamin.
