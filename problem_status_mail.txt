@@ -10,7 +10,7 @@ Beste {name},
 
 U bent contactpersoon van HiSPARC station {station_number}.
 
-Dit station heeft de afgelopen dagen geen data opgestuurd naar Nikhef. U kunt de status van uw station hier bekijken: https://data.hisparc.nl/show/stations/{station_number}/status/
+Dit station heeft de gisteren geen data opgestuurd naar Nikhef. U kunt de status van uw station hier bekijken: https://data.hisparc.nl/show/stations/{station_number}/status/
 
 De meest recente data vind u hier: https://data.hisparc.nl/show/stations/{station_number}. Merk op dat de data 's nachts verwerkt wordt en dat eventuele data die vandaag is opgestuurd hier niet in verwerkt zijn.
 
