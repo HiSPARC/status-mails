@@ -7,7 +7,6 @@ import requests
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
-from config import LOG_FILE
 from read_wordpress_db import get_station_contacts
 
 
@@ -38,7 +37,7 @@ def requests_retry_session(
 
 class SendStatusMails(object):
 
-    def __init__(self, trigger_on_status='problem', message='', log_filename=LOG_FILE):
+    def __init__(self, trigger_on_status='problem', message='', log_filename='statusmail.log'):
         self.trigger_on_status = trigger_on_status
         self.message = message
         self.log_filename = log_filename
@@ -51,7 +50,7 @@ class SendStatusMails(object):
         fh = logging.FileHandler(self.log_filename)
         fh.setLevel(logging.INFO)
         ch = logging.StreamHandler()
-        ch.setLevel(logging.DEBUG)
+        ch.setLevel(logging.ERROR)
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
         fh.setFormatter(formatter)
         ch.setFormatter(formatter)
@@ -89,7 +88,7 @@ class SendStatusMails(object):
         self.logger.info(f'Sending mails using {SMTP_SERVER}.')
         with smtplib.SMTP(SMTP_SERVER) as server:
             for to, msg in queue:
-                server.sendmail('bhrhispa@nikhef.nl', to, msg.encode('utf-8'))
+                server.sendmail('bhrhispa@nikhef.nl', to, msg.encode('utf8'))
                 self.logger.debug(f'sending mail to: {to}')
 
     def send_status_mail(self):
