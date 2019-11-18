@@ -18,7 +18,6 @@ def str_to_list_of_ints(s):
     except Exception as e:
         return []
 
-
 # Wordpress tables definitions.
 # https://github.com/ramen/wordpress-sqlalchemy
 # Copyright (c) 2010 by Dave Benjamin.
@@ -46,7 +45,7 @@ users_table = sa.Table('his_users', metadata,
 )
 
 
-# classes to match the wordpress tables
+# classes match the wordpress tables
 class User(object):
     def __init__(self, user_login):
         self.user_login = user_login
@@ -81,19 +80,21 @@ def get_station_contacts(session=connect()):
     A wordpress user which has an 'is_admin' record in the usermeta table
     assiociated with its user ID is considered to be a station contact.
 
-    The station number is stored in a separate 'station_id' record in the
+    The station number is stored in a seperate 'station_id' record in the
     usermeta table.
 
-    `station_id` is an ascii string with station numbers.
-
+    `station_id` is an ascii string with comma seperated station numbers.
     """
-    query = session.query(UserMeta).filter((UserMeta.meta_key == 'is_admin'))
+    query = session.query(UserMeta).filter((UserMeta.meta_key == 'station_id'))
     contacts = defaultdict(list)
     for row in query:
         is_admin = row.meta_value
         user_id = row.user_id
+        #print(f'user_id = {user_id}')
+        u = session.query(User).filter(User.ID == user_id).first()
         if 'yes' not in is_admin:
-            continue
+            pass  # FIXME the 'is_admin' field is broken. Ignore it. nov2019
+            #continue
         meta_record = session.query(UserMeta).filter((UserMeta.user_id == user_id) & (UserMeta.meta_key == 'station_id')).first()
         for sn in str_to_list_of_ints(meta_record.meta_value):
             u = session.query(User).filter(User.ID == user_id).first()
