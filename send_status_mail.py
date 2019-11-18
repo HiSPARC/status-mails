@@ -89,7 +89,7 @@ class SendStatusMails(object):
         self.logger.info(f'Sending mails using {SMTP_SERVER}.')
         with smtplib.SMTP(SMTP_SERVER) as server:
             for to, msg in queue:
-                server.sendmail('bhrhispa@nikhef.nl', to, msg)
+                server.sendmail('bhrhispa@nikhef.nl', to, msg.encode('utf-8'))
                 self.logger.debug(f'sending mail to: {to}')
 
     def send_status_mail(self):
