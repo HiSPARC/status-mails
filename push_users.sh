@@ -3,8 +3,8 @@
 
 url="https://api.hisparc.k8s.surfsara.nl/usermgmtapi/v1/jaas-ldap-rest/user/"
 application="jaas-ldap-api"
-#key="GEHEIM"
 source "geheim-api-token-niet-committen"
+#key="GEHEIM"
 input="users.csv"
 
 while IFS=',' read -r f1 f2 f3 f4 f5

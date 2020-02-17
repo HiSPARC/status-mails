@@ -50,7 +50,7 @@ class SendStatusMails(object):
         fh = logging.FileHandler(self.log_filename)
         fh.setLevel(logging.INFO)
         ch = logging.StreamHandler()
-        ch.setLevel(logging.DEBUG)
+        ch.setLevel(logging.ERROR)
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
         fh.setFormatter(formatter)
         ch.setFormatter(formatter)
@@ -88,7 +88,7 @@ class SendStatusMails(object):
         self.logger.info(f'Sending mails using {SMTP_SERVER}.')
         with smtplib.SMTP(SMTP_SERVER) as server:
             for to, msg in queue:
-                #server.sendmail('bhrhispa@nikhef.nl', to, msg)
+                server.sendmail('bhrhispa@nikhef.nl', to, msg.encode('utf8'))
                 self.logger.debug(f'sending mail to: {to}')
 
     def send_status_mail(self):
@@ -115,7 +115,7 @@ class SendStatusMails(object):
         if not self.validate_status():
             return 1
 
-        self.logger.info('Sending mails:')
+        self.logger.info(f'Sending mails for status {self.trigger_on_status}:')
         self.send_status_mail()
 
         self.logger.info('Done.')

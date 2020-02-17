@@ -1,0 +1,52 @@
+From: Beheer HiSPARC <bhrhispa@nikhef.nl>
+To: {rcpt}
+MIME-Version: 1.0
+Content-type: text/plain
+Subject: HiSPARC station {station_number} offline.
+
+(English below)
+
+Beste {name},
+
+U bent contactpersoon van HiSPARC station {station_number}.
+
+Dit station is al meer dan een week offline. Dat wil zeggen: Er is al meer dan een week geen data op de central Nikhef server ontvangen. U kunt de status van uw station hier bekijken: https://data.hisparc.nl/show/stations/{station_number}/status/
+
+De meest recente data vind u hier: https://data.hisparc.nl/show/stations/{station_number}. Merk op dat de data 's nachts verwerkt wordt en dat eventuele data die vandaag is opgestuurd hier niet in verwerkt zijn.
+
+Voor meer informatie:
+ - Documentatie: https://docs.hisparc.nl/maintenance/
+ - Veel gestelde vragen: https://docs.hisparc.nl/maintenance/faq.html
+ - Bekende problemen: https://docs.hisparc.nl/maintenance/known-issues.html
+ - Dagelijkse station onderhoud: https://docs.hisparc.nl/infopakket/pdf/controle_station.pdf
+
+We vragen u vriendelijk het probleem te onderzoeken en op te lossen. U kunt uw cluster-coordinator om hulp vragen.
+
+
+Met vriendelijke groet,
+Het HiSPARC team
+www.hisparc.nl
+
+
+(English)
+
+
+Dear {name},
+
+You are our contact for HiSPARC station {station_number}.
+
+Your station has been offline for over a week: No data has been recieved by the central Nikhef server last week. You can view the status of the station here: https://data.hisparc.nl/show/stations/{station_number}/status/
+
+An overview of the most recent data that was processed is here: https://data.hisparc.nl/show/stations/{station_number}. Note that data is processed overnight and data that is uploaded today is not shown on this page.
+
+More information:
+ - Documentation: https://docs.hisparc.nl/maintenance/
+ - Frequently asked questions: https://docs.hisparc.nl/maintenance/faq.html
+ - Known issues: https://docs.hisparc.nl/maintenance/known-issues.html
+ - Daily station maintenance (in dutch): https://docs.hisparc.nl/infopakket/pdf/controle_station.pdf
+
+We kindly ask you to investigate and fix the issue. Feel free to your cluster-coordinator for assistance.
+
+Yours sincerely,
+The HiSPARC team
+www.hisparc.nl

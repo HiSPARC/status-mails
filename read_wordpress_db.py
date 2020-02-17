@@ -4,7 +4,7 @@ from collections import namedtuple, defaultdict
 import sqlalchemy as sa
 import sqlalchemy.orm as orm
 
-from .config import DB_USER, DB_PASSWORD
+from config import DB_USER, DB_PASSWORD
 
 CONNECTION_STR = f'mysql+pymysql://{DB_USER}:{DB_PASSWORD}@localhost/wp_hisparc?charset=utf8'
 
@@ -85,14 +85,16 @@ def get_station_contacts(session=connect()):
 
     `station_id` is an ascii string with comma seperated station numbers.
     """
-    query = session.query(UserMeta).filter((UserMeta.meta_key == 'is_admin'))
+    query = session.query(UserMeta).filter((UserMeta.meta_key == 'station_id'))
     contacts = defaultdict(list)
     for row in query:
         is_admin = row.meta_value
         user_id = row.user_id
+        #print(f'user_id = {user_id}')
         u = session.query(User).filter(User.ID == user_id).first()
         if 'yes' not in is_admin:
-            continue
+            pass
+            #continue 
         meta_record = session.query(UserMeta).filter((UserMeta.user_id == user_id) & (UserMeta.meta_key == 'station_id')).first()
         for sn in str_to_list_of_ints(meta_record.meta_value):
             u = session.query(User).filter(User.ID == user_id).first()
