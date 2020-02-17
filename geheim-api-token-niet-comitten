@@ -1,0 +1,2 @@
+#git update-index --no-assume-unchanged geheim-api-token-niet-comitten
+key="dit-is-niet-de-echte-api-key"
